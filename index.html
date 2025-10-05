@@ -110,14 +110,14 @@
 
     #text {
         width: 100%;
-       min-height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
     }
 
     .aboutMe {
         width: 60%;
-    min-height: 70vh;
+        min-height: 70vh;
         margin-top: 70px;
         text-align: center;
         box-shadow: 0 0 10px #6366f1;
@@ -147,9 +147,25 @@
         cursor: pointer;
         font-size: 16px;
     }
-    #stds{
-        display: none;
+
+    #stds {
+        width: 100%;
+        height: 100vh;
     }
+            table,
+        th,
+        td {
+            border: 2px solid black;
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        table {
+            margin: auto;
+            width: 70%;
+            height: auto;
+        }
 
     @media (max-width: 768px) {
         .signupForm {
@@ -204,43 +220,44 @@
             font-size: 0.9rem;
         }
     }
-      @media (max-width: 992px) {
-    .aboutMe {
-      width: 80%;
+
+    @media (max-width: 992px) {
+        .aboutMe {
+            width: 80%;
+        }
+
+        .aboutMe h1 {
+            font-size: 1.8rem;
+            letter-spacing: 8px;
+        }
+
+        #para p {
+            width: 90%;
+            font-size: 17px;
+        }
     }
 
-    .aboutMe h1 {
-      font-size: 1.8rem;
-      letter-spacing: 8px;
-    }
+    @media (max-width: 600px) {
+        .aboutMe {
+            width: 95%;
+            padding: 15px;
+        }
 
-    #para p {
-      width: 90%;
-      font-size: 17px;
-    }
-  }
+        .aboutMe h1 {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+        }
 
-  @media (max-width: 600px) {
-    .aboutMe {
-      width: 95%;
-      padding: 15px;
-    }
+        #para p {
+            width: 95%;
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    .aboutMe h1 {
-      font-size: 1.5rem;
-      letter-spacing: 5px;
+        #para button {
+            font-size: 15px;
+        }
     }
-
-    #para p {
-      width: 95%;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    #para button {
-      font-size: 15px;
-    }
-  }
 </style>
 
 <body>
@@ -298,6 +315,29 @@
         </div>
     </section>
     <section id="stds">
+            <section id="signup">
+        <form class="signupForm">
+            <h1>SignUp Form</h1>
+            <label for="firstName">First Name :
+                <input id="firstName" type="text" placeholder="Enter Your First Name " required>
+            </label>
+            <label for="lasttName">Last Name :
+            </label>
+            <input id="lastName" type="text" placeholder="Enter Your last Name " required>
+            <label for="email">Email :
+            </label>
+            <input id="email" type="email" placeholder="Enter Your Email " required>
+            <label for="password">Password :
+            </label>
+            <input id="password" type="password" placeholder="Enter Your password " required>
+            <label for="confirmPassword">Confirm Password :
+            </label>
+            <input id="confirmPassword" type="password" placeholder="Confirm Your Password " required>
+            <div class="button">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </section>
         <h2 style="color: rgb(82, 74, 74); text-align: center; font-size: 25px;">School Toppers Record(Secondary-level)
         </h2>
         <table>

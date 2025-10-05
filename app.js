@@ -36,18 +36,4 @@ function delRow() {
     row.remove()
   }
 }
-function eyesOpen() {
-    document.getElementById('dragon').src = 'opened Eyes.png'
-}
-function eyesClose() {
-    document.getElementById('dragon').src = 'closed Eyes.png'
-}
-let i = 0
-function counterplus(){
-i++
-   document.getElementById('counterNum').innerText = i
-}
-function counterminus(){
-i--
-   document.getElementById('counterNum').innerText = i
-}
+
