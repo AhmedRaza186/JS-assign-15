@@ -18,13 +18,13 @@
         width: 100%;
         height: 100vh;
         overflow-x: hidden;
+        background: #f9fafb;
 
     }
 
     #signup {
         width: 100%;
         height: 100vh;
-        background: #f9fafb;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -96,7 +96,6 @@
         flex-direction: column;
         align-items: center;
         padding-top: 150px;
-        background: #f9fafb;
 
     }
 
@@ -107,6 +106,49 @@
         padding: 25px;
         width: auto;
         border-radius: 30px;
+    }
+
+    #text {
+        width: 100%;
+       min-height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .aboutMe {
+        width: 60%;
+    min-height: 70vh;
+        margin-top: 70px;
+        text-align: center;
+        box-shadow: 0 0 10px #6366f1;
+    }
+
+    .aboutMe h1 {
+        width: auto;
+        margin-top: 30px;
+        letter-spacing: 15px;
+        color: #1f2937;
+    }
+
+    #para p {
+        display: flex;
+        width: 70%;
+        text-align: left;
+        font-size: 19px;
+        margin: 25px auto;
+        line-height: 1.6;
+    }
+
+    #para button {
+        border: none;
+        background: transparent;
+        color: #2563eb;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #stds{
+        display: none;
     }
 
     @media (max-width: 768px) {
@@ -162,6 +204,43 @@
             font-size: 0.9rem;
         }
     }
+      @media (max-width: 992px) {
+    .aboutMe {
+      width: 80%;
+    }
+
+    .aboutMe h1 {
+      font-size: 1.8rem;
+      letter-spacing: 8px;
+    }
+
+    #para p {
+      width: 90%;
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .aboutMe {
+      width: 95%;
+      padding: 15px;
+    }
+
+    .aboutMe h1 {
+      font-size: 1.5rem;
+      letter-spacing: 5px;
+    }
+
+    #para p {
+      width: 95%;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    #para button {
+      font-size: 15px;
+    }
+  }
 </style>
 
 <body>
@@ -207,7 +286,81 @@
             <p id="p4"></p>
         </div>
     </section>
-
+    <section id="text">
+        <div class="aboutMe">
+            <h1>About Me</h1>
+            <hr>
+            <div id="para">
+                <p></p>
+                <button onclick="more()" id="btn1">See More</button>
+                <button style="display: none;" onclick="less()" id="btn2">See Less</button>
+            </div>
+        </div>
+    </section>
+    <section id="stds">
+        <h2 style="color: rgb(82, 74, 74); text-align: center; font-size: 25px;">School Toppers Record(Secondary-level)
+        </h2>
+        <table>
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Attendence</th>
+                <th>Score</th>
+                <th>Delete Row</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Saleem</td>
+                <td>6th</td>
+                <td>90%</td>
+                <td>95.4%</td>
+                <td>
+                    <button onclick="delRow()">Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nabeel</td>
+                <td>7th</td>
+                <td>85%</td>
+                <td>90.2%</td>
+                <td>
+                    <button onclick="delRow()">Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Kulsoom</td>
+                <td>8th</td>
+                <td>99%</td>
+                <td>96.9%</td>
+                <td>
+                    <button onclick="delRow()">Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Adeel</td>
+                <td>9th</td>
+                <td>65%</td>
+                <td>97.7%</td>
+                <td>
+                    <button onclick="delRow()">Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Salman</td>
+                <td>10th</td>
+                <td>80%</td>
+                <td>95.8%</td>
+                <td>
+                    <button onclick="delRow()">Del</button>
+                </td>
+            </tr>
+        </table>
+    </section>
     <script src="app.js"></script>
 </body>
 
