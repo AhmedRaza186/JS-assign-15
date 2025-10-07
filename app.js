@@ -30,10 +30,71 @@ function less() {
 
 }
 
-function delRow() {
+function delRow(event) {
   const row = event.target.closest('tr')
-  if (confirm("Are you sure you want to delete this row?")) {
     row.remove()
-  }
+}
+    function calculateAge() {
+      let dob = document.getElementById("age").value;
+      let birthDate = new Date(dob);
+      let today = new Date();
+
+      let age = today.getFullYear() - birthDate.getFullYear();
+      let month = today.getMonth() - birthDate.getMonth();
+      let day = today.getDate() - birthDate.getDate();
+
+      if (month < 0 || (month === 0 && day < 0)) {
+        age--;
+      }
+      return age
+    }
+
+
+let i = 0 
+function studentForm(event){
+  event.preventDefault()
+  document.getElementById('studentForm').style.display = 'none'
+  document.getElementsByTagName('table')[0].style.marginTop = '30px'
+  document.getElementsByTagName('h2')[0].style.paddingTop = '30px'
+  ++i
+
+  let name = document.getElementById('fullName').value
+  let fatherName = document.getElementById('fatherName').value
+  let clas = document.getElementById('class').value
+  let gender = document.querySelector('input[name="gender"]:checked').value
+  let studentAge = calculateAge()
+
+  let table = document.getElementsByTagName('table')[0]
+  let row = document.createElement('tr')
+  let data1 = document.createElement('td')
+  data1.innerText = i
+  let data2 = document.createElement('td')
+  data2.innerText = name
+  let data3 = document.createElement('td')
+  data3.innerText = fatherName
+  let data4 = document.createElement('td')
+  data4.innerText = clas
+  let data5 = document.createElement('td')
+  data5.innerText = gender
+  let data6 = document.createElement('td')
+  data6.innerText = studentAge
+  
+let data7 = document.createElement("td")
+let delBtn = document.createElement("button")
+delBtn.innerText = "Del"
+delBtn.onclick = function(){ delRow(event) }
+data7.appendChild(delBtn)
+
+ row.appendChild(data1)
+ row.appendChild(data2)
+ row.appendChild(data3)
+ row.appendChild(data4)
+ row.appendChild(data5)
+ row.appendChild(data6)
+ row.appendChild(data7)
+ table.appendChild(row)
 }
 
+function addStudent(){
+    document.getElementById('studentForm').style.display = 'flex'
+}
