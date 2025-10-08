@@ -5,472 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS assign chp 49-52</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Poppins, sans-serif;
-    }
 
-    body {
-        width: 100%;
-        height: 100vh;
-        overflow-x: hidden;
-        background: #f9fafb;
-
-    }
-
-    #signup {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .signupForm {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 20px 20px 0 20px;
-        box-shadow: 0 0 13px #2563eb;
-        transition: transform .5s ease-in-out;
-
-    }
-
-    .signupForm:hover {
-        transition: transform .5s ease-in-out;
-        transform: scale(1.02);
-    }
-
-    .signupForm h1 {
-        color: #2563eb;
-        letter-spacing: 10px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid black;
-
-    }
-
-    .signupForm label {
-        width: 100%;
-        margin-top: 18px;
-        font-size: 1.2rem;
-    }
-
-    .signupForm input {
-        display: block;
-        width: 100%;
-        height: 45px;
-        padding-left: 8px;
-        font-size: 1rem;
-        border: 1px solid #d1d5db;
-    }
-
-    .signupForm input:focus {
-        outline: none;
-        transition: border .5s ease;
-        border: 1px solid #3b82f6;
-    }
-
-    .button button {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 100px;
-        background: #2563eb;
-        color: snow;
-        padding: 16px;
-        border-radius: 25px;
-        border: none;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-
-    #afterSignup {
-        height: 100vh;
-        width: 100vw;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 150px;
-
-    }
-
-    .details {
-        margin-top: 20px;
-        text-align: center;
-        border: 2px solid black;
-        padding: 25px;
-        width: auto;
-        border-radius: 30px;
-    }
-
-    #text {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-    }
-
-    .aboutMe {
-        width: 60%;
-        min-height: 70vh;
-        margin-top: 70px;
-        text-align: center;
-        box-shadow: 0 0 10px #6366f1;
-    }
-
-    .aboutMe h1 {
-        width: auto;
-        margin-top: 30px;
-        letter-spacing: 15px;
-        color: #1f2937;
-    }
-
-    #para p {
-        display: flex;
-        width: 70%;
-        text-align: left;
-        font-size: 19px;
-        margin: 25px auto;
-        line-height: 1.6;
-    }
-
-    #para button {
-        border: none;
-        background: transparent;
-        color: #2563eb;
-        text-decoration: underline;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    #stds {
-        width: 100%;
-        height: 100vh;
-    }
-
-    #studentForm {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f9fafb;
-        margin-top: 30px;
-    }
-
-    .studentForm {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 20px 20px 0 20px;
-        box-shadow: 0 0 13px #22c55e;
-        transition: transform .5s ease-in-out;
-
-    }
-
-    .studentForm:hover {
-        transition: transform .5s ease-in-out;
-        transform: scale(1.02);
-    }
-
-    .studentForm h1 {
-        color: #166534;
-        letter-spacing: 10px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #22c55e;
-
-    }
-
-    .studentForm label {
-        width: 100%;
-        margin-top: 18px;
-        font-size: 1.2rem;
-    }
-
-    .studentForm input {
-        display: block;
-        width: 100%;
-        height: 45px;
-        padding-left: 8px;
-        font-size: 1rem;
-        border: 1px solid #d1d5db;
-    }
-
-    .studentForm input:focus {
-        outline: none;
-        transition: border .5s ease;
-        border: 1px solid #22c55e;
-    }
-
-    .studentForm select {
-        display: block;
-        width: 100%;
-        height: 45px;
-        padding-left: 8px;
-        font-size: 1rem;
-        border: 1px solid #d1d5db;
-        cursor: pointer;
-    }
-
-    .studentForm select:focus {
-        outline: none;
-        transition: border .5s ease;
-        border: 1px solid #3b82f6;
-
-    }
-
-    .button2 button {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 100px;
-        background: #22c55e;
-        color: snow;
-        padding: 16px;
-        border-radius: 25px;
-        border: none;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-
-    .button2 button:hover {
-        color: #16a34a;
-        background: snow;
-        border: 1px solid #22c55e;
-    }
-
-    .gender {
-        width: 100%;
-        margin-top: 18px;
-        height: auto;
-        display: flex;
-        align-items: center;
-        gap: 70px;
-        /* dono ke beech thora gap */
-    }
-
-    .gender p {
-        font-size: 1.1rem;
-    }
-
-    .gender div {
-        display: flex;
-        align-items: center;
-        /* justify-content: space-between; */
-        flex-direction: column;
-
-    }
-
-    .gender div input {
-        width: 30px;
-    }
-
-    .gender div label {
-        font-size: 1rem;
-        margin-top: 0;
-
-    }
-input[type="radio"] {  
-  accent-color: #22c55e; 
-  cursor: pointer;
-
-}
-
-
-    table,
-    th,
-    td {
-        border: 2px solid black;
-        font-size: 20px;
-        text-align: center;
-
-
-    }
-
-    table {
-        margin-top: 50px;
-        margin: auto;
-        width: 70%;
-        height: auto;
-
-    }
-    .addStudent {
-        display: flex;
-        justify-self: center;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 180px;
-        background: #000000;
-        color: snow;
-        padding: 16px;
-        border-radius: 30px;
-        border: none;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-
-    .addStudent:hover {
-        color: #000000;
-        background: snow;
-        border: 1px solid #000000;
-    }
-    
-    @media (max-width: 768px) {
-        .signupForm {
-            width: 90%;
-            padding: 15px;
-        }
-
-        .signupForm h1 {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-        }
-
-        .signupForm input {
-            height: 40px;
-            font-size: 0.95rem;
-        }
-
-        .signupForm button {
-            width: 120px;
-            font-size: 0.9rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .signupForm {
-            width: 100%;
-            padding: 15px;
-        }
-
-        .signupForm h1 {
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-        }
-
-        .signupForm input {
-            height: 38px;
-            font-size: 0.9rem;
-        }
-
-        .signupForm button {
-            width: 100px;
-            font-size: 0.85rem;
-            padding: 10px;
-        }
-
-        #afterSignup h1 {
-            font-size: 1.5rem;
-        }
-
-        .details {
-            padding: 15px;
-            font-size: 0.9rem;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .aboutMe {
-            width: 80%;
-        }
-
-        .aboutMe h1 {
-            font-size: 1.8rem;
-            letter-spacing: 8px;
-        }
-
-        #para p {
-            width: 90%;
-            font-size: 17px;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .aboutMe {
-            width: 95%;
-            padding: 15px;
-        }
-
-        .aboutMe h1 {
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-        }
-
-        #para p {
-            width: 95%;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        #para button {
-            font-size: 15px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .studentForm {
-            width: 90%;
-            padding: 15px;
-        }
-
-        .studentForm h1 {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-        }
-
-        .studentForm input {
-            height: 40px;
-            font-size: 0.95rem;
-        }
-
-        .studentForm button {
-            width: 120px;
-            font-size: 0.9rem;
-        }
-    }
-
-    .studentForm .gender p {
-        font-size: 1rem;
-    }
-
-
-    @media (max-width: 480px) {
-        .studentForm {
-            width: 100%;
-            padding: 15px;
-        }
-
-        .studentForm h1 {
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-        }
-
-        .studentForm input {
-            height: 38px;
-            font-size: 0.9rem;
-        }
-
-        .studentForm button {
-            width: 100px;
-            font-size: 0.85rem;
-            padding: 10px;
-        }
-
-        .studentForm .gender p {
-            font-size: 0.8rem;
-        }
-
-        .signupForm .gender div input {
-            width: 25px;
-        }
-    }
-</style>
 
 <body>
     <section id="signup">
@@ -492,7 +29,7 @@ input[type="radio"] {
             </label>
             <input id="confirmPassword" type="password" placeholder="Confirm Your Password " required>
             <div class="button">
-                <button onclick="submitForm()">Submit</button>
+                <button onclick="submitForm(event)">Submit</button>
             </div>
         </form>
     </section>
@@ -543,11 +80,13 @@ input[type="radio"] {
                     <p>Select Your gender :
                     </p>
                     <div class="male">
-                        <input id="male" type="radio" placeholder="select Your gender" name="gender" class="genders" value="Male" required>
+                        <input id="male" type="radio" placeholder="select Your gender" name="gender" class="genders"
+                            value="Male" required>
                         <label for="male">Male</label>
                     </div>
                     <div class="female">
-                        <input id="female" type="radio" placeholder="select Your gender" name="gender" class="genders" value="Female" required>
+                        <input id="female" type="radio" placeholder="select Your gender" name="gender" class="genders"
+                            value="Female" required>
                         <label for="female">Female</label>
                     </div>
                 </div>
@@ -566,17 +105,19 @@ input[type="radio"] {
                     <option value="X">X</option>
                 </select>
                 <div class="button2">
-                    <button onclick="studentForm(event)">Submit</button>
+                    <button id="submitBtn" onclick="studentForm(event)">Submit</button>
                 </div>
             </form>
         </section>
-        <table>
-            <h2 style="color: rgb(82, 74, 74); text-align: center; font-size: 25px;">Student Record
-            </h2>
-            <tr>
-                <th>Index</th>
-                <th>Name</th>
-                <th>Father Name</th>
+        <div class="table-container">
+
+            <table>
+                <h2>Student Record</h2>
+                
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Father Name</th>
                 <th>Class</th>
                 <th>gender</th>
                 <th>Age</th>
@@ -584,7 +125,8 @@ input[type="radio"] {
                 <th>Edit Row</th>
             </tr>
         </table>
-       <a style="text-decoration: none;" href="#studentForm"><button class="addStudent" onclick='addStudent()'>Add More Student</button></a> 
+        <a style="text-decoration: none;" href="#studentForm"><button class="addStudent" onclick='addStudent()'>Add More Student</button></a>
+    </div>
     </section>
     <script src="app.js"></script>
 </body>
