@@ -317,6 +317,19 @@ td {
 
 }
 
+td button {
+    background-color: #d32929;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+td button:hover {
+    background-color: #f02e21;
+}
 td:last-child button {
     background-color: #00CC99;
     color: white;
